@@ -114,21 +114,69 @@ namespace Lab07.Controllers
         }
 
         // POST: api/Restaurants
-        [HttpPost]
-        public void Post([FromBody]string value)
+        [HttpPost("AddRestaurant/{newRestaurant}")]
+        public Boolean AddRestaurant(Restaurant newRestaurant)
         {
+            DBConnect objDB = new DBConnect();
+            string sql = "INSERT INTO Restaurant_T (RestName, RestAddr, StarRating, PriceRating, ImageURL, Cuisine, AvgRating" +
+                "VALUES ('" + newRestaurant.RestName + "', '" +
+                newRestaurant.RestAddr + "', " +
+                newRestaurant.StarRating + ", '" +
+                newRestaurant.PriceRating + "', '" +
+                newRestaurant.ImageURL + "', '" +
+                newRestaurant.Cuisine + "', " +
+                newRestaurant.AvgRating + ");";
+
+            int result = objDB.DoUpdate(sql);
+            if (result == -1)
+            {
+                return true;
+            } else {
+                return false;
+            }
         }
-        
-        // PUT: api/Restaurants/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+
+        [HttpPost("AddReview/{review}")]
+        public Boolean AddReview(Reviews review)
         {
+            DBConnect objDB = new DBConnect();
+
+            string sql = "INSERT INTO Reviews_T " +
+                "VALUES (" +
+                review.RestaurantID + ", " +
+                review.StarRating + ", '" +
+                review.PriceRating + "', '" +
+                review.Comments + "');";
+
+            int result = objDB.DoUpdate(sql);
+
+            if (result == -1)
+            {
+                return false; 
+            } else
+            {
+                return true;
+            }
         }
         
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("DeleteRestaurant/{name}")]
+        public Boolean DeleteRestaurant(string name)
         {
+            DBConnect objDB = new DBConnect();
+
+            string sql = "DELETE FROM Restaurant_T" +
+                "WHERE RestName = '" + name + "';";
+
+            int result = objDB.DoUpdate(sql);
+
+            if (result == -1)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
         }
     }
 }
