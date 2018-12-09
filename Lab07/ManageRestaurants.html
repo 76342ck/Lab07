@@ -1,10 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="utf-8" />
-    <title></title>
+    <title>Add or Delete Restaurant</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+    <script src="manage.js"></script>
 </head>
 <body>
-
+    <header>
+        <a href="home.html">
+            <img id="headerImg" src="Images/headerIcon.png" />
+        </a>
+        <div id="headerLinks">
+            <a href="Search.html">Search</a>
+            <a href="ManageRestaurants.html">Manage</a>
+        </div>
+    </header>
+    <div id="main">
+        <div id="deleteDiv" ng-controller="DeleteController" >
+            <fieldset>
+                <legend>Delete Restaurant</legend>
+                <input id="nameTxt" type="text" ng-model="deleteValue"/>
+                <input id="deleteBtn" type="button" value="Delete" ng-click="delete(deleteValue)" /> <br />
+                {{ result }} <br />
+            </fieldset>
+        </div>
+    </div>
 </body>
 </html>
