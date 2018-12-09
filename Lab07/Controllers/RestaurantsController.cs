@@ -90,10 +90,10 @@ namespace Lab07.Controllers
         }
 
         [HttpGet("GetByRatings/{addr}/{rating}")]
-        public List<Restaurant> GetByLocationRatings(string addr, string rating)
+        public List<Restaurant> GetByLocationRatings(string addr, int rating)
         {
             DBConnect objDB = new DBConnect();
-            DataSet ds = objDB.GetDataSet("SELECT * FROM Restaurant_T WHERE RestAddr LIKE '%" + addr + "%' AND Cuisine = '" + rating + "'");
+            DataSet ds = objDB.GetDataSet("SELECT * FROM Restaurant_T WHERE RestAddr LIKE '%" + addr + "%' AND StarRating = " + rating);
             List<Restaurant> restaurants = new List<Restaurant>();
 
             foreach (DataRow record in ds.Tables[0].Rows)
