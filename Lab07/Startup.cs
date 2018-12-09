@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
 
 namespace Lab07
 {
@@ -24,6 +25,14 @@ namespace Lab07
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //Configure the Web API to accept XML data
+            services.AddMvc()
+                .AddXmlDataContractSerializerFormatters();
+            //Configure the JSON serialization to use PascalCase for naming JSON properties
+            services.AddMvc()
+                .AddJsonOptions(options =>
+                        options.SerializerSettings.ContractResolver = new DefaultContractResolver());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
