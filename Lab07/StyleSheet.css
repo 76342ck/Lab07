@@ -1,0 +1,94 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#content {
+    padding-top: 60px;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 150%;
+    padding-bottom: 60px;
+}
+
+#title {
+    background-color: white;
+    float: left;
+    padding-left: 2%;
+    position: absolute;
+    padding-top: .8%;
+}
+
+a {
+    text-decoration: none;
+    color: RosyBrown;
+}
+
+#nav {
+    background-color: white;
+    height: 79px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+}
+
+    #nav a {
+        text-decoration: none;
+    }
+
+        #nav a:link {
+            color: grey;
+        }
+
+        #nav a:hover {
+            background-color: lightgrey;
+        }
+
+        #nav a:visited {
+            color: maroon;
+        }
+
+        #nav a:active {
+            color: maroon;
+        }
+
+#navLink {
+    padding-top: 14%;
+    padding-right: 3%;
+    letter-spacing: 3px;
+    text-align: right;
+}
+
+    #navLink > ul li {
+        list-style: none;
+        display: block;
+    }
+
+img {
+    width: 400px;
+}
+
+/* DESKTOP - styling applied to the desktop screens */
+@media screen and (min-width: 600px) {
+    #navLink {
+        padding-top: 1.2%;
+        padding-right: 2%;
+    }
+
+        #navLink > ul li {
+            list-style: none;
+            display: inline;
+        }
+
+    #menu-btn {
+        display: none;
+    }
+}

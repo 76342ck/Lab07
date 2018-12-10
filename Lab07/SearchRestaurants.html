@@ -13,37 +13,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="SearchRestaurants.js"></script>
-    <style>
-        img {
-            width: 400px;
-        }
-    </style>
+
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
 </head>
 <body>
-    <br /><br /><br />
-    <div ng-controller="RestaurantsController">
-        <label>Display all restaurants: </label>
-        <input id="btnGetAll" type="button" value="Display" ng-click="get()" />
-        
-        <br />
-        <label>Search Restaurant Name: </label>
-        <input id="txtRestaurant" type="text" placeholder="Name or first few letters" ng-model="searchName" />
-        <input id="btnSearch" type="button" value="Search" ng-click="search()" />
- 
-        <br />
-        <label>Search Location and Cuisine</label>
-        <input id="txtLocation" type="text" placeholder="City, State" ng-model="searchLocation"/>
-        <input id="txtCuisine" type="text" placeholder="Cuisine Type" ng-model="searchCuisine"/>
-        <input id="btnSearchCuisine" type="button" value="Search" ng-click="search1()" />
-
-        <br />
-        <label>Search Location & Rating</label>
-        <input id="txtLocation2" type="text" placeholder="City, State" ng-model="searchLocation2"/>
-        <input id="txtRating" type="text" placeholder="Rating" ng-model="searchRating"/>
-        <input id="btnSearchRating" type="button" value="Search" ng-click="search2()" />
+    <div id="nav">
+        <div id="title">
+            <h1>Search Restaurant By</h1>
+        </div>
+        <div id="menu-btn">
+            <img id="menu-icon" src="images/menu-icon.png" alt="Menu Icon" />
+        </div>
+        <div id="navLink">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../labs.html">Labs</a></li>
+            </ul>
+        </div>
     </div>
-    <br /><br /><hr />
-    <div id="searchResults"></div>
-
+    <br><br><br><br><br><hr>
+    <div id="content">
+        <div ng-controller="RestaurantsController">
+            <label>Display all restaurants: </label>
+            <input id="btnGetAll" type="button" value="Display" ng-click="get()" />
+            <br />
+            <br />
+            <label>Search Restaurant Name: </label>
+            <input id="txtRestaurant" type="text" placeholder="Name or first few letters" ng-model="searchName" />
+            <input id="btnSearch" type="button" value="Search" ng-click="search()" />
+            <br />
+            <br />
+            <label>Search Location and Cuisine</label>
+            <input id="txtLocation" type="text" placeholder="City, State" ng-model="searchLocation" />
+            <input id="txtCuisine" type="text" placeholder="Cuisine Type" ng-model="searchCuisine" />
+            <input id="btnSearchCuisine" type="button" value="Search" ng-click="search1()" />
+            <br />
+            <br />
+            <label>Search Location & Rating</label>
+            <input id="txtLocation2" type="text" placeholder="City, State" ng-model="searchLocation2" />
+            <input id="txtRating" type="text" placeholder="Rating" ng-model="searchRating" />
+            <input id="btnSearchRating" type="button" value="Search" ng-click="search2()" />
+        </div>
+        <br /><br /><hr />
+        <div id="searchResults"></div>
+    </div>
 </body>
 </html>
