@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
+using Microsoft.AspNetCore.Cors;
 
 namespace Lab07
 {
@@ -24,7 +25,39 @@ namespace Lab07
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            //Configure CORS
+            services.AddCors();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("http://localhost:56475/"));
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                    });
+                options.AddPolicy("AllowAllMethods",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:56475/")
+                                .AllowAnyMethod();
+                    });
+                options.AddPolicy("AllowAllHeaders",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:56475/")
+                               .AllowAnyHeader();
+                    });
+                options.AddPolicy("SetPreflightExpiration",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:56475/")
+                               .SetPreflightMaxAge(TimeSpan.FromSeconds(2520));
+                    });
+            });
+
+                services.AddMvc();
 
             //Configure the Web API to accept XML data
             services.AddMvc()
@@ -42,6 +75,15 @@ namespace Lab07
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //Configure CORS
+            app.UseCors(builder =>
+                builder.WithOrigins("http://localhost:56475/")
+           .AllowAnyHeader()
+            );
+
+            // Shows UseCors with named policy.
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseMvc();
         }

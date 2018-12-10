@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using Microsoft.AspNetCore.Cors;
 using Utilities;
 
 namespace Lab07.Controllers
 {
     [Produces("application/json")]
     [Route("api/Restaurants")]
+    [EnableCors("AllowAllHeaders")]
     public class RestaurantsController : Controller
     {
         // GET: api/Restaurants
