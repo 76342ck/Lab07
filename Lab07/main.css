@@ -1,2 +1,18 @@
 ﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+#headerImg {
+    height: 150px;
+}
+
+header {
+    height: 150px;
+    padding: 0;
+    margin: 0;
+}
+
+#headerLinks {
+    float: right;
 }

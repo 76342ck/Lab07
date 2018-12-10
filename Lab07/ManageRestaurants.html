@@ -20,11 +20,11 @@
         </div>
     </header>
     <div id="main">
-        <div id="deleteDiv" ng-controller="DeleteController" >
+        <div id="deleteDiv" ng-controller="DeleteController">
             <label>Delete Restaurant:</label>
-            <input id="nameTxt" type="text" ng-model="deleteValue"/>
-            <input id="deleteBtn" type="button" value="Delete" ng-click="delete(deleteValue)" placeholder="Enter Restaurant Name"/> <br />
-            {{ result }} <br />
+            <input id="nameTxt" type="text" ng-model="deleteValue" placeholder="Enter Restaurant Name" />
+            <input id="deleteBtn" type="button" value="Delete" ng-click="delete()" /> <br />
+            <!--<p>{{ result }}</p> <br />-->
             <hr />
         </div>
         <div id="addDiv" ng-controller="AddController">
@@ -52,7 +52,9 @@
                 <label>Average Rating: </label>
                 <input id="priceRating" type="text" ng-model="priceRating" /><br /><br />
 
-                {{ result }} <br />
+                <input id="AddBtn" type="button" value="Add" ng-click="add()" /> <br />
+
+                <!--<p>{{ result }}</p> <br />-->
             </fieldset>
         </div>
     </div>
