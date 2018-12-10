@@ -6,8 +6,8 @@ function RestaurantsController($scope, $http) {
 
         var restaurant = new Object();
 
-        //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/";
-        var strURL = "http://localhost:56475/api/Restaurants/";
+        var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/";
+        //var strURL = "http://localhost:56475/api/Restaurants/";
 
         //.restaurantName has to match the parameter in my web service method
         restaurant = JSON.stringify(restaurant);
@@ -56,8 +56,8 @@ function RestaurantsController($scope, $http) {
         var restName = $("#txtRestaurant").val();
         var restaurant = new Object();
 
-        //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/";
-        var strURL = "http://localhost:56475/api/Restaurants/GetByName/" + restName;
+        var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/GetByName/" + restName;
+        //var strURL = "http://localhost:56475/api/Restaurants/GetByName/" + restName;
 
         //scope this
         var valid = true;
@@ -116,8 +116,8 @@ function RestaurantsController($scope, $http) {
         var cuisine = $("#txtCuisine").val();
         var restaurant = new Object();
 
-        //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/";
-        var strURL = "http://localhost:56475/api/Restaurants/GetByCuisine/" + loc + "/" + cuisine;
+        var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/GetByCuisine/" + loc + "/" + cuisine;
+        //var strURL = "http://localhost:56475/api/Restaurants/GetByCuisine/" + loc + "/" + cuisine;
 
         //scope this
         var valid = true;
@@ -180,8 +180,8 @@ function RestaurantsController($scope, $http) {
         var rating = $("#txtRating").val();
         var restaurant = new Object();
 
-        //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/";
-        var strURL = "http://localhost:56475/api/Restaurants/GetByRatings/" + loc + "/" + rating;
+        var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/GetByRatings/" + loc + "/" + rating;
+        //var strURL = "http://localhost:56475/api/Restaurants/GetByRatings/" + loc + "/" + rating;
 
         //scope this
         var valid = true;
