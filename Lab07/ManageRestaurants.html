@@ -4,7 +4,9 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="utf-8" />
     <title>Add or Delete Restaurant</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="manage.js"></script>
 </head>
 <body>
@@ -13,16 +15,43 @@
             <img id="headerImg" src="Images/headerIcon.png" />
         </a>
         <div id="headerLinks">
-            <a href="Search.html">Search</a>
+            <a href="SearchRestaurants.html">Search</a>
             <a href="ManageRestaurants.html">Manage</a>
         </div>
     </header>
     <div id="main">
         <div id="deleteDiv" ng-controller="DeleteController" >
+            <label>Delete Restaurant:</label>
+            <input id="nameTxt" type="text" ng-model="deleteValue"/>
+            <input id="deleteBtn" type="button" value="Delete" ng-click="delete(deleteValue)" placeholder="Enter Restaurant Name"/> <br />
+            {{ result }} <br />
+            <hr />
+        </div>
+        <div id="addDiv" ng-controller="AddController">
             <fieldset>
-                <legend>Delete Restaurant</legend>
-                <input id="nameTxt" type="text" ng-model="deleteValue"/>
-                <input id="deleteBtn" type="button" value="Delete" ng-click="delete(deleteValue)" /> <br />
+                <legend>Add New Restaurant</legend>
+
+                <label>Restaurant Name: </label>
+                <input id="restName" type="text" ng-model="restName" /><br /><br />
+
+                <label>Address: </label>
+                <input id="restAddr" type="text" ng-model="restAddr" /><br /><br />
+
+                <label>Star Rating: </label>
+                <input id="starRating" type="text" ng-model="starRating" /><br /><br />
+
+                <label>Price Rating: </label>
+                <input id="priceRating" type="text" ng-model="priceRating" /><br /><br />
+
+                <label>Image URL: </label>
+                <input id="imageURL" type="text" ng-model="imgURL" /><br /><br />
+
+                <label>Cuisine: </label>
+                <input id="cuisine" type="text" ng-model="cuisine" /><br /><br />
+
+                <label>Average Rating: </label>
+                <input id="priceRating" type="text" ng-model="priceRating" /><br /><br />
+
                 {{ result }} <br />
             </fieldset>
         </div>
