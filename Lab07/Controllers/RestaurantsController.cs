@@ -117,7 +117,7 @@ namespace Lab07.Controllers
 
         // POST: api/Restaurants
         [HttpPost("AddRestaurant/{newRestaurant}")]
-        public Boolean AddRestaurant(Restaurant newRestaurant)
+        public Boolean AddRestaurant([FromBody] Restaurant newRestaurant)
         {
             DBConnect objDB = new DBConnect();
             string sql = "INSERT INTO Restaurant_T (RestName, RestAddr, StarRating, PriceRating, ImageURL, Cuisine, AvgRating" +
@@ -139,7 +139,7 @@ namespace Lab07.Controllers
         }
 
         [HttpPost("AddReview/{review}")]
-        public Boolean AddReview(Reviews review)
+        public Boolean AddReview([FromBody] Reviews review)
         {
             DBConnect objDB = new DBConnect();
 
