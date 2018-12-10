@@ -19,7 +19,9 @@ function DeleteController($scope, $http) {
                     $scope.result = "Error - restaurant was not deleted from database";
                 });
     };
+}
 
+function AddController($scope, $http) {
     $scope.add = function () {
 
         var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug82619/WebAPI2/api/Restaurants/DeleteRestaurant/";

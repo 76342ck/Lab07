@@ -6,8 +6,8 @@ function RestaurantsController($scope, $http) {
 
         var restaurant = new Object();
 
-        //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/";
-        var strURL = "http://localhost:56475/api/Restaurants/";
+        var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug81959/WebAPI/api/Restaurants/";
+        //var strURL = "http://localhost:56475/api/Restaurants/";
 
         //.restaurantName has to match the parameter in my web service method
         restaurant = JSON.stringify(restaurant);
