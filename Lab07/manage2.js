@@ -9,17 +9,33 @@ function DeleteController($scope, $http) {
         console.log("In delete function");
 
         var restName = $("#nameTxt").val();
+        var rName = $scope.deleteValue;
+        var restaurant = new Object();
+
         //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug82619/WebAPI/api/Restaurants/DeleteRestaurant/";
         var strURL = "http://localhost:56475/api/Restaurants/DeleteRestaurant/" + restName;
-        var restaurant = $scope.deleteValue;
 
-        // Setup and send an AJAX request to the Web API 
-        $http.delete(strURL, restaurant).
-            then(function () {  // success callback function
+        restaurant.name = rName;
+        restaurant = JSON.stringify(restaurant);
+
+        var request = {
+            method: "DELETE",
+            url: strURL,
+            headers: {  // object containing header type as properties.
+                'Content-Type': "application/json; charset=utf-8",
+            },
+            data: restaurant // input parameter sent as JSON object.
+        };
+
+        $http(request).
+            then(function (response) {
+                alert("Success");
+                console.log(response);
                 $scope.result = "Successfully deleted restaurant from database";
                 console.log($scope.result);
             },
-                function () {   // error callback function
+                function (response) {
+                    alert("ERROR: " + response.data);
                     $scope.result = "Error - restaurant was not deleted from database";
                 });
     };
@@ -31,7 +47,7 @@ function AddController($scope, $http) {
         //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug82619/WebAPI2/api/Restaurants/AddRestaurant/";
         var strURL = "http://localhost:56475/api/Restaurants/AddRestaurant/";
         console.log("in add function");
-        
+
         var restaurant = JSON.stringify({
             RestName: $scope.RestName,
             RestAddr: $scope.RestAddr,
