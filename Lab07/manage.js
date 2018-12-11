@@ -6,8 +6,9 @@ function DeleteController($scope, $http) {
 
     // Create a function assigned to deleteBtn's click event (ng-click).
     $scope.delete = function () {
-
-        var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug82619/WebAPI2/api/Restaurants/AddRestaurant/";
+        console.log("In delete function");
+        //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug82619/WebAPI/api/Restaurants/DeleteRestaurant/";
+        var strURL = "http://localhost:56475/api/Restaurants/DeleteRestaurant/";
         var restaurant = $scope.deleteValue;
 
         // Setup and send an AJAX request to the Web API 
@@ -19,13 +20,14 @@ function DeleteController($scope, $http) {
                     $scope.result = "Error - restaurant was not deleted from database";
                 });
     };
-}
+};
 
 function AddController($scope, $http) {
     $scope.add = function () {
 
-        var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug82619/WebAPI2/api/Restaurants/DeleteRestaurant/";
-
+        //var strURL = "http://cis-iis2.temple.edu/Fall2018/cis3344_tug82619/WebAPI2/api/Restaurants/AddRestaurant/";
+        var strURL = "http://localhost:56475/api/Restaurants/AddRestaurant/";
+        console.log("in add function");
         
         var restaurant = JSON.stringify({
             RestName: $scope.RestName,
@@ -55,4 +57,7 @@ function AddController($scope, $http) {
                 });
 
     };
-}
+};
+
+appModule.controller('DeleteController', DeleteController);
+appModule.controller('AddController', AddController);
